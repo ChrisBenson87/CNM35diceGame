@@ -13,25 +13,26 @@
         <h2>Objectcive: Roll the dice to reach 20 or more if you hit a 1 you loose.</h2>
     </header>
 
-    <div class = "dice">
+    <div class = "dicePlayer1">
         <p class = "player 1">Player 1</p>
         <img class = "diceImg1" src = "/diceGame/blankdice.jpg">
         <img id = "diceNum1" src = "">
-        <h2>Current Score: </h2><div id = player1Scoreboard>0</div>
+        <h2>Current Score: </h2><div id = "player1Scoreboard">0</div>
+    </div>
+    
+    <div class = "buttonContainer">
+        <button id = "rollDicePlayer1">Roll Dice</button>
     </div>
 
-    <div class = "dice">
+    <div class = "dicePlayer2">
         <p class = "player 2">Player 2</p>
         <img class = "diceImg2" src = "/diceGame/blankdice.jpg">
         <img id = "diceNum2" src = "">
-        </div>
+        <h2>Current Score: </h2><div id = "player2Scoreboard">0</div>
+    </div>
     
     <div class = "buttonContainer">
-        <button id = "rollDice">Roll Dice</button>
-    </div>
-
-    <div class = "playerContainer">
-        <p class = "playerName" type = "text"></p>
+        <button id = "rollDicePlayer2">Roll Dice</button>
     </div>
 
     <script src ="app.js"></script>
