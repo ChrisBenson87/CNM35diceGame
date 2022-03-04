@@ -4,6 +4,8 @@ const diceNum1 = document.getElementById("diceNum1");
 const diceNum2 = document.getElementById("diceNum2");
 const player1Scoreboard = document.getElementById("player1Scoreboard");
 const player2Scoreboard = document.getElementById("player2Scoreboard");
+const pleaseWaitP1 = document.getElementById("pleaseWaitP1");
+const pleaseWaitP2 = document.getElementById("pleaseWaitP2");
 
 let player1Score = 0;
 let player2Score = 0;
@@ -25,7 +27,8 @@ rollDicePlayer1.addEventListener("click", () =>{
                 player1Scoreboard.innerHTML = ("You Win");
                 player2Scoreboard.innerHTML = ("You Lose");
             }
-            player1Scoreboard.innerHTML = ("Wait your turn");
+            pleaseWaitP1.innerHTML = ("Wait your turn");
+            pleaseWaitP2.innerHTML = ("Your Roll");
             currentPlayer = 2;
         }
     }
@@ -45,8 +48,9 @@ rollDicePlayer2.addEventListener("click", () =>{
             if(player2Score >= 20){
                 player2Scoreboard.innerHTML = ("You Win");
             }
-        player2Scoreboard.innerHTML = ("Wait your turn");
-        currentPlayer = 1;
+            pleaseWaitP2.innerHTML = ("Wait your turn");
+            pleaseWaitP1.innerHTML = ("Your Roll");
+            currentPlayer = 1;
         }
     }
 });
