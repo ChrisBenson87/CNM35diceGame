@@ -1,11 +1,13 @@
+const newGameButton = document.getElementById("newGameButton");
 const rollDicePlayer1 = document.getElementById("rollDicePlayer1");
 const rollDicePlayer2 = document.getElementById("rollDicePlayer2");
 const diceNum1 = document.getElementById("diceNum1");
 const diceNum2 = document.getElementById("diceNum2");
 const player1Scoreboard = document.getElementById("player1Scoreboard");
 const player2Scoreboard = document.getElementById("player2Scoreboard");
-const pleaseWaitP1 = document.getElementById("pleaseWaitP1");
-const pleaseWaitP2 = document.getElementById("pleaseWaitP2");
+const holdPlayer1 = document.getElementById("holdPlayer1");
+const holdPlayer2 = document.getElementById("holdPlayer2");
+const playAgain = document.getElementById("playAgain");
 
 let player1Score = 0;
 let player2Score = 0;
@@ -27,12 +29,13 @@ rollDicePlayer1.addEventListener("click", () =>{
                 player1Scoreboard.innerHTML = ("You Win");
                 player2Scoreboard.innerHTML = ("You Lose");
             }
-            pleaseWaitP1.innerHTML = ("Wait your turn");
-            pleaseWaitP2.innerHTML = ("Your Roll");
-            currentPlayer = 2;
         }
     }
 });
+
+holdPlayer1.addEventListener("click", () =>{
+    currentPlayer = 2;
+})
 
 rollDicePlayer2.addEventListener("click", () =>{
     if(currentPlayer === 2){
@@ -47,10 +50,20 @@ rollDicePlayer2.addEventListener("click", () =>{
             player2Scoreboard.innerHTML = (player2Score);
             if(player2Score >= 20){
                 player2Scoreboard.innerHTML = ("You Win");
+                player1Scoreboard.innerHTML = ("You Lose");
             }
-            pleaseWaitP2.innerHTML = ("Wait your turn");
-            pleaseWaitP1.innerHTML = ("Your Roll");
-            currentPlayer = 1;
         }
     }
 });
+
+holdPlayer2.addEventListener("click", () =>{
+    currentPlayer = 1;
+})
+
+playAgain.addEventListener("click", () =>{
+    player1Score = 0;
+    player1Scoreboard.innerHTML = 0;
+    player2Score = 0;
+    player2Scoreboard.innerHTML = 0;
+    currentPlayer = 1;
+})
