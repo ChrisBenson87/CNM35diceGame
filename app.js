@@ -89,7 +89,7 @@ rollDicePlayer2.addEventListener("click", () =>{
         else{
             player2CurrentScore += diceResult2;
             player2CurrentScoreboard.innerHTML = (player2CurrentScore);
-            player2OverallScore += player2CurrentScore;
+            player2OverallScore += diceResult2;
             player2OverallScoreboard.innerHTML = (player2OverallScore);
             if(player2OverallScore >= 20 || player2CurrentScore >= 20){
                 objective.innerHTML = ("Congrats Player 2 you win. Press play again if you want to play again.");
@@ -111,11 +111,15 @@ holdPlayer2.addEventListener("click", () =>{
 
 playAgain.addEventListener("click", () =>{
     if(playAgainAct === 1){
-        player1Score = 0;
-        player1Scoreboard.innerHTML = 0;
+        player1CurrentScore = 0;
+        player1CurrentScoreboard.innerHTML = 0;
+        player1OverallScore = 0;
+        player1OverallScoreboard.innerHTML = 0;
         diceNum1.src = "";
-        player2Score = 0;
-        player2Scoreboard.innerHTML = 0;
+        player2CurrentScore = 0;
+        player2CurrentScoreboard.innerHTML = 0;
+        player2OverallScore = 0;
+        player2OverallScoreboard.innerHTML = 0;
         diceNum2.src = "";
         currentPlayer = 1;
     }

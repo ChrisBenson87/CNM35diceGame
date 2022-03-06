@@ -2,6 +2,65 @@
     box-sizing: border-box;
 }
 
-#diceNum1{
-    float: left;
+h3, h4, h5{
+    font-size: 20px;
+}
+
+header{
+    text-align: center;
+}
+
+.gameArea{
+    display: flex;
+    position: absolute;
+    text-align: center;
+    justify-content: space-between;
+}
+
+#diceNum1, #diceNum2{
+    position: relative;
+    left: 200px;
+    bottom: 200px;
+}
+
+.newGameContainer, .player1Area, .player2Area, .playAgainContainer{
+    position: absolute;
+    text-align: center;
+    flex-direction: row;
+}
+
+#newGameButton{
+    position: relative;
+    left: 825px;
+}
+
+#playAgain{
+    position: relative;
+    top: 380px;
+    left: 810px;
+}
+
+.player1Area{
+    left: 500px;
+}
+
+.player2Area{
+    left: 900px;
+}
+
+.player1Stuff, .player2Stuff{
+    position: relative;
+    bottom: 300px;
+}
+
+#player1OverallScoreboard, #player2OverallScoreboard{
+    font-size: 30px;
+}
+
+#player1CurrentScoreboard, #player2CurrentScoreboard{
+    font-weight: bold;
+    font-size: 20px;
+    position: absolute;
+    bottom: 55px;
+    left: 220px;
 }
