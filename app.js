@@ -6,44 +6,53 @@ const rollDicePlayer1 = document.getElementById("rollDicePlayer1");
 const rollDicePlayer2 = document.getElementById("rollDicePlayer2");
 const diceNum1 = document.getElementById("diceNum1");
 const diceNum2 = document.getElementById("diceNum2");
-const player1Scoreboard = document.getElementById("player1Scoreboard");
-const player2Scoreboard = document.getElementById("player2Scoreboard");
+const player1CurrentScoreboard = document.getElementById("player1CurrentScoreboard");
+const player2CurrentScoreboard = document.getElementById("player2CurrentScoreboard");
 const holdPlayer1 = document.getElementById("holdPlayer1");
 const holdPlayer2 = document.getElementById("holdPlayer2");
+const player1OverallScoreboard = document.getElementById("player1OverallScoreboard");
+const player2OverallScoreboard = document.getElementById("player2OverallScoreboard");
 const player1Status = document.getElementById("player1Status");
 const player2Status = document.getElementById("player2Status");
 const playAgain = document.getElementById("playAgain");
 
-let player1Score = 0;
-let player2Score = 0;
+let player1CurrentScore = 0;
+let player2CurrentScore = 0;
+let player1OverallScore = 0;
+let player2OverallScore = 0;
 let currentPlayer = 0;
 let playAgainAct = 0;
 
 newGameButton.addEventListener("click", () =>{
     currentPlayer = 1;
-    objective.innerHTML = ("Press Roll Dice to roll the dice. If you hit 20 or more you win. If you roll a 1 you loose.");
+    objective.innerHTML = ("Press Roll Dice and score points based on the roll of the dice. If you hit 20 or more you win. If you roll a 1 you loose.");
     player1Status.innerHTML = ("Your Roll");
     player2Status.innerHTML = ("Wait your turn");
 })
 
 rollDicePlayer1.addEventListener("click", () =>{
     if(currentPlayer == 1){
-        objective.innerHTML = ("You can hit the hold button if your want to give the other player a try.")
+        objective.innerHTML = ("You may want to hit hold to keep your score. Beware if you roll a 1 you loose all your points.")
         player1Status.innerHTML = ("Your Roll");
         player2Status.innerHTML = ("Wait your Turn");
         let diceResult1 = Math.floor(Math.random() * 6 + 1);
         diceNum1.src = `./${diceResult1}.jpg`;
             
         if(diceResult1 == 1){
-            player1Status.innerHTML = ("You Lose");
-            player2Status.innerHTML = ("You Win");
-            objective.innerHTML = ("Congrats Player 2 you win. Press play again if you want to play again.");
-            playAgainAct = 1;
+            player1OverallScore = 0;
+            player1OverallScoreboard.innerHTML = 0;
+            player1CurrentScore = 0;
+            player1CurrentScoreboard.innerHTML = 0;
+            player2Status.innerHTML = ("Your Roll");
+            player1Status.innerHTML = ("Wait your turn");
+            currentPlayer = 2;
         }
         else{
-            player1Score += diceResult1;
-            player1Scoreboard.innerHTML = (player1Score);
-            if(player1Score >= 20){
+            player1CurrentScore += diceResult1;
+            player1CurrentScoreboard.innerHTML = (player1CurrentScore);
+            player1OverallScore += diceResult1;
+            player1OverallScoreboard.innerHTML = (player1OverallScore);
+            if(player1OverallScore >= 20 || player1CurrentScore >= 20){
                 objective.innerHTML = ("Congrats Player 1 you win. Press play again if you want to play again.");
                 player1Status.innerHTML = ("You Win");
                 player2Status.innerHTML = ("You Lose");
@@ -54,9 +63,11 @@ rollDicePlayer1.addEventListener("click", () =>{
 });
 
 holdPlayer1.addEventListener("click", () =>{
-    currentPlayer = 2;
+    player1CurrentScore = 0;
+    player1CurrentScoreboard.innerHTML = 0;
     player2Status.innerHTML = ("Your Roll");
     player1Status.innerHTML = ("Wait your Turn");
+    currentPlayer = 2;
 })
 
 rollDicePlayer2.addEventListener("click", () =>{
@@ -67,15 +78,20 @@ rollDicePlayer2.addEventListener("click", () =>{
         diceNum2.src = `./${diceResult2}.jpg`;
     
         if(diceResult2 == 1){
-            player2Status.innerHTML = ("You Lose");
-            player1Status.innerHTML = ("You Win");
-            objective.innerHTML = ("Congrats Player 1 you win. Press play again if you want to play again.");
-            playAgainAct = 1;
+            player2OverallScore = 0;
+            player2OverallScoreboard.innerHTML = 0;
+            player2CurrentScore = 0;
+            player2CurrentScoreboard.innerHTML = 0;
+            player1Status.innerHTML = ("Your Roll");
+            player2Status.innerHTML = ("Wait your turn");
+            currentPlayer = 1;
         }
         else{
-            player2Score += diceResult2;
-            player2Scoreboard.innerHTML = (player2Score);
-            if(player2Score >= 20){
+            player2CurrentScore += diceResult2;
+            player2CurrentScoreboard.innerHTML = (player2CurrentScore);
+            player2OverallScore += player2CurrentScore;
+            player2OverallScoreboard.innerHTML = (player2OverallScore);
+            if(player2OverallScore >= 20 || player2CurrentScore >= 20){
                 objective.innerHTML = ("Congrats Player 2 you win. Press play again if you want to play again.");
                 player2Status.innerHTML = ("You Win");
                 player1Status.innerHTML = ("You Lose");
@@ -86,9 +102,11 @@ rollDicePlayer2.addEventListener("click", () =>{
 });
 
 holdPlayer2.addEventListener("click", () =>{
-    currentPlayer = 1;
+    player2CurrentScore = 0;
+    player2CurrentScoreboard.innerHTML = 0;
     player1Status.innerHTML = ("Your Roll");
     player2Status.innerHTML = ("Wait your Turn");
+    currentPlayer = 1;
 })
 
 playAgain.addEventListener("click", () =>{
