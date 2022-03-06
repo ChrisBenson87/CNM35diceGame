@@ -10,43 +10,33 @@
 <body>
     <header>
         <h1>DICE 20</h1>
-        <h2>Objectcive: Roll the dice to reach 20 or more if you hit a 1 you loose.</h2>
+        <h2 id = "objective">Welcome to Dice game 20. Press New Game to begin.</h2>
     </header>
 
     <div class = "newGameContainer">
         <button id = "newGameButton">New Game</button> 
     </div>
 
-    <div class = "dicePlayer">
+    <div class = "player1Area">
         <p class = "player 1">Player 1</p>
-        <img class = "diceImg1" src = "/diceGame/blankdice.jpg">
+        <img class = "diceImg1" src = "blankdice.jpg">
         <img id = "diceNum1" src = "">
-        <h2>Current Score: </h2><div id = "player1Scoreboard">0</div>
-    </div>
-    
-    <div class = "rollContainer">
+        <h3 id = "player1Status"></h3>
+        <h4>Player 1 Score: </h4><div id = "player1Scoreboard">0</div>
         <button id = "rollDicePlayer1">Roll Dice</button>
-    </div>
-
-    <div class = "holdContainer">
         <button id = "holdPlayer1">Hold</button>
     </div>
-
-    <div class = "dicePlayer">
-        <p class = "player 2">Player 2</p>
-        <img class = "diceImg2" src = "/diceGame/blankdice.jpg">
-        <img id = "diceNum2" src = "">
-        <h2>Current Score: </h2><div id = "player2Scoreboard">0</div>
-    </div>
     
-    <div class = "buttonContainer">
+   <div class = "dicePlayer">
+        <p class = "player 2">Player 2</p>
+        <img id = "diceImg2" src = "blankdice.jpg">
+        <img id = "diceNum2" src = "">
+        <h2 id = "player2Status"></h2>
+        <h3>Player 2 Score: </h3><div id = "player2Scoreboard">0</div>
         <button id = "rollDicePlayer2">Roll Dice</button>
-    </div>
-
-    <div class = "holdContainer">
         <button id = "holdPlayer2">Hold</button>
     </div>
-
+    
     <div class = "playAgainContainer">
         <button id = "playAgain">Play Again</button>
     </div>
