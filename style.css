@@ -2,6 +2,10 @@
     box-sizing: border-box;
 }
 
+body{
+    background-color: skyblue;
+}
+
 h3, h4, h5{
     font-size: 20px;
 }
@@ -18,15 +22,15 @@ header{
 }
 
 #diceNum1, #diceNum2{
-    position: relative;
-    left: 200px;
-    bottom: 200px;
+    position: absolute;
+    left: 125px;
+    bottom: 390px;
 }
 
 .newGameContainer, .player1Area, .player2Area, .playAgainContainer{
     position: absolute;
     text-align: center;
-    flex-direction: row;
+    
 }
 
 #newGameButton{
@@ -50,7 +54,13 @@ header{
 
 .player1Stuff, .player2Stuff{
     position: relative;
-    bottom: 300px;
+    bottom: 220px;
+}
+
+#player1Status, #player2Status{
+    position: absolute;
+    left: 100px;
+    bottom: 430px;
 }
 
 #player1OverallScoreboard, #player2OverallScoreboard{

@@ -32,7 +32,7 @@ newGameButton.addEventListener("click", () =>{
 
 rollDicePlayer1.addEventListener("click", () =>{
     if(currentPlayer == 1){
-        objective.innerHTML = ("You may want to hit hold to keep your score. Beware if you roll a 1 you loose all your points.")
+        objective.innerHTML = ("You may want to press hold to keep your score. Beware if you roll a 1 you loose all your points.")
         player1Status.innerHTML = ("Your Roll");
         player2Status.innerHTML = ("Wait your Turn");
         let diceResult1 = Math.floor(Math.random() * 6 + 1);
